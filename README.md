@@ -10,6 +10,7 @@ Demo of how css selectors works. This is my personal work to teach myself new th
 
 ## CSS选择器
 本项目页面展示CSS的30种选择器的使用，基于[The 30 CSS Selectors you Must Memorize](http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048)这篇文章。希望你也能动手学习。  
+当然，请使用modern browers查看：）  
 
 ## Jade
 我同时也温习如何使用Jade，可以在`/learn-jade`查看。

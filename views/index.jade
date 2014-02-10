@@ -1,6 +1,122 @@
 extends layout
 
+
 block content
-  h1= title
-  p Welcome to #{title}
-  p I just deployed my app to heroku via Codeship
+  div.container
+    article
+      h1 30种CSS选择器用法实战
+      p 
+        :markdown
+          请使用modern browsers。选择器兼容性问题请到[caniuse](http://caniuse.com/)查询。
+      section#part-1
+        h2 星号通配符
+        div.markdown
+          :markdown
+            星号通配符将匹配当前节点上的所有元素。比如，单独的一个星号`*`将匹配页面上所有的元素，
+            而`#id-sel *`将匹配`$('#id-sel')`下的所有节点。
+            举个例子，以下代码：
+            ```
+            #div-1 * {
+              background-color: #01FF70;
+            }
+            ```
+            将产生下面的效果：
+        // demo 1
+        div.demo#demo-1
+          div.wrapper#div-1 #div-1
+            span span
+            span span
+            a a
+        // end of demo 1
+        div.markdown
+          :markdown
+            若改成以下代码：
+            ```
+            #div-1 * {
+              background-color: yellow;
+            }
+            ```
+            将把所有`div-1`当中的元素背景颜色更改为黄色。效果如下：
+        // demo 2
+        div.demo#demo-2
+          div#div-1 #div-1
+            span span
+            span span
+            a a
+        // end of demo 2
+        div.markdown
+          :markdown
+
+      section#part-2
+        h2 #X
+        div.markdown
+          :markdown
+            `#X`用于匹配id属性为X的元素，这样的元素在一个页面有且只有一个。举个例子，以下代码：
+            ```
+            #div-2 { background-color: green }
+            #span-1 { background-color: red }
+            #span-2 { background-color: blue }
+            ```
+            将产生以下效果
+        div.demo#demo-1
+          div#div-2 #div-2
+            span#span-1 #span-1
+            span#span-2 #span-2
+        div.markdown
+          :markdown
+            切记：`id`属性不能随意使用，容易造成滥用，应该尽量使用tag名或者class来匹配元素。  
+
+      section#part-3
+        h2 .X
+        div.markdown
+          :markdown
+            `.X`用于匹配class属性为含有X的元素，称作类选择器。举个例子，以下代码：
+            ```
+            #div-3 { background-color: green }
+            .span-1 { background-color: red }
+            .span-2 { background-color: blue }
+            ```
+            将产生以下效果
+        div.demo#demo-1
+          div#div-3 #div-3
+            span.span-1 .span-1
+            span.span-2 .span-2
+
+      section#part-4
+        h2 X Y
+        div.markdown
+          :markdown
+            `X Y`形式的选择器是后继选择器，表示匹配DOM结构上是`$(X)`子孙节点的并符合
+            选择器Y的节点（即`$(X).children(Y)`）。示例代码如下：
+            ```
+            #div-4 {
+              background-color: green;
+              .wu-huang-wan-sui { background-color: skyblue; }
+            }
+            ```
+            效果如下：
+        div.demo#demo-1
+          div#div-4 #div-4
+            span.wu-huang-wan-sui .wu-huang-wan-sui
+        div.markdown
+          :markdown
+            注意：如果你的代码出现诸如`X Y Z A B.error`的代码，那么一定是你命名或者代码组织上出了问题。尽量缩短你的选择器。
+
+      section#part-5
+        h2 X
+        div.markdown
+          :markdown
+            单独的一个`X`代表着匹配标签名为X的所有DOM节点。比如`div {}`就表示匹配所有的`div`元素。 示例代码如下：
+            ```
+            #div-5 {
+              span { border: 2px solid blue; }
+            }
+            ```
+            其效果如下：
+        div.demo#demo-1
+          div#div-5 #div-5
+            span 我
+            span 是 
+            span Web
+            span 攻城
+            span 狮

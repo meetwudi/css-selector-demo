@@ -1,0 +1,87 @@
+.demo-inline-block {
+  display: inline-block;
+  margin: 6px;
+}
+
+
+section[id^='part-'] {
+  .demo {
+    // 所有示例的容器
+    margin: 0 6px;
+  }
+}
+
+section#part-1 {
+  #demo-1 {
+    #div-1 {
+      background-color: @aqua;
+      * {
+        background-color: @lime;
+
+        display: inline-block;
+        margin: 6px;
+      }
+    }
+  }
+
+  #demo-2 {
+    #div-1 {
+      background-color: @aqua;
+      * {
+        background-color: yellow;
+
+        .demo-inline-block;
+      }
+    }
+  }
+}
+
+section#part-2 {
+  #demo-1 {
+    #div-2 {
+      background-color: green;
+      #span-1 { background-color: red }
+      #span-2 { background-color: blue }
+      * {
+        .demo-inline-block;
+      }
+    }
+  }
+}
+
+section#part-3 {
+  #demo-1 {
+    #div-3 {
+      background-color: green;
+      .span-1 { background-color: red }
+      .span-2 { background-color: blue }
+      * {
+        .demo-inline-block;
+      }
+    }
+  }
+}
+
+section#part-4 {
+  #demo-1 {
+    #div-4 {
+      background-color: green;
+      .wu-huang-wan-sui { background-color: skyblue; }
+      * {
+        .demo-inline-block;
+      }
+    }
+  }
+}
+
+section#part-5 {
+  #demo-1 {
+    background-color: @aqua;
+    #div-5 {
+      span { border: 2px solid blue; }
+      * {
+        .demo-inline-block;
+      }
+    }
+  }
+}
