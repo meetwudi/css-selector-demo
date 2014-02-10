@@ -76,11 +76,25 @@ section#part-4 {
 
 section#part-5 {
   #demo-1 {
-    background-color: @aqua;
     #div-5 {
+      background-color: @aqua;
       span { border: 2px solid blue; }
       * {
         .demo-inline-block;
+      }
+    }
+  }
+}
+
+section#part-7 {
+  #demo-1 {
+    div#div-7 {
+      background-color: @aqua;
+      p {
+        background-color: skyblue;
+      }
+      p.foo + p.bar {
+        font-size: 24px;
       }
     }
   }

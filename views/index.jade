@@ -116,3 +116,104 @@ block content
             span Web
             span 攻城
             span 狮
+
+      section#part-6
+        h2 X:visited和X:link
+        div.markdown  
+          :markdown
+            `X:link`是一个伪类选择器，它将匹配页面上所有未被点击的链接。相反，`X:visited`匹配页面上所有曾经被点击过的链接。
+            这里的链接指的是`a`标签。示例代码如下：
+            ```
+            #div-6 {
+              a:link { color: red }
+              a:visited { color: purple; }
+            }
+            ```
+            效果如下：
+        div.demo#demo-1
+          div#div-6
+            a(href="http://css-selector-demo-app.herokuapp.com/") 这是一个链接
+
+      section#part-7
+        h2 X + Y
+        div.markdown
+          :markdown
+            `X + Y`是相邻选择器，表示匹配`$(Y)`，这个`$(Y)`节点必须是`$(X)`同级的直接后继节点。具体点说，即在DOM树中应该
+            满足如下结构：
+            ```
+            <div>
+              ... 
+              <X'> 匹配X的节点X' </X'>
+              <Y'> 匹配Y的节点Y' </Y'>
+              ...
+            </div>
+            ```
+            而如下结构均无法正确匹配：
+            ```
+            <div>
+              ... 
+              <Y'> 匹配Y的节点Y' </Y'>
+              <X'> 匹配X的节点X' </X'>
+              ...
+            </div>
+            ```
+            或者
+            ```
+            <div>
+              ... 
+              <X'> 匹配X的节点X' </X'>
+              ...
+              <Y'> 匹配Y的节点Y' </Y'>
+              ...
+            </div>
+            ```
+            或者
+            ```
+            <div>
+              ... 
+              <Y'> 匹配Y的节点Y' </Y'>
+              ...
+              <X'> 匹配X的节点X' </X'>
+              ...
+            </div>
+            ```
+            示例代码如下：
+            ```
+              div#div-7 {
+                p.foo + p.bar {
+                  font-size: 20px;
+                }
+              }
+            ```
+            效果如下：
+        div.demo#demo-1
+          div#div-7 div-7
+            p.bar p.bar
+            p.foo p.foo 
+            p.bar p.bar
+            p.bar p.bar
+            p.foo p.foo
+
+      section#part-8
+        h2 X > Y
+        div.markdown
+          :markdown
+            `X > Y`为直接后继选择器，与`X Y`不同的是，`X > Y`只选择`$(X)`在DOM树中的直接子节点。比如在下面的
+            DOM树中：
+            ```
+            <div class="container">
+               <ul id="list-a">
+                  <li> List Item A  
+                    <ul id="list-b">
+                       <li> Child A </li>
+                    </ul>
+                  </li>
+                  <li> List Item B</li> 
+                  <li> List Item C</li>
+                  <li> List Item D</li>
+               </ul>
+            </div>
+            ```
+            文字为`List Item A`的`li`是id为`list-a`的`ul`的直接子节点，而文字为`Child A`的`li`则不是，它
+            应该算是id为`list-a`的`ul`的三级子节点（深度为3的子孙）。  
+            除此之外，`X > Y`和'X Y'是一样的。这里就略去示例代码。

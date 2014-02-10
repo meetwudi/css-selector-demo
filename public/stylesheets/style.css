@@ -452,7 +452,7 @@ section#part-4 #demo-1 #div-4 * {
   display: inline-block;
   margin: 6px;
 }
-section#part-5 #demo-1 {
+section#part-5 #demo-1 #div-5 {
   background-color: #7fdbff;
 }
 section#part-5 #demo-1 #div-5 span {
@@ -461,4 +461,13 @@ section#part-5 #demo-1 #div-5 span {
 section#part-5 #demo-1 #div-5 * {
   display: inline-block;
   margin: 6px;
+}
+section#part-7 #demo-1 div#div-7 {
+  background-color: #7fdbff;
+}
+section#part-7 #demo-1 div#div-7 p {
+  background-color: skyblue;
+}
+section#part-7 #demo-1 div#div-7 p.foo + p.bar {
+  font-size: 24px;
 }
