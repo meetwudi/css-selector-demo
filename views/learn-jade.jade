@@ -1,0 +1,68 @@
+- var authenticated = false 
+- var classList = ['class1', 'class2']
+
+mixin MyList
+  ul
+    li This
+    li is
+    li a
+    li mixin
+    li list
+
+article
+  section#learn-tags
+    div
+      h1 Tags
+      p This is a list
+      ul
+        li first item
+        li second item
+        li third item
+    div
+      h1 Nested-tags
+      div: a(href="http://www.google.com.hk") Google
+
+  section#learn-variables
+    h1 Variables
+    if authenticated
+      p Welcome!
+    else 
+      p Please log in first.
+
+  section#learn-attributes
+    h1 Attributes 
+    div(class=classList, style="background-color: skyblue") 
+      p this is an attributed div
+
+  section#learn-code
+    h1 Codes
+      // this is a comment that will be rendered as html comment
+      //- this is a comment which will not be rendered
+      //
+        This is a block comment
+        I can type anything I want here!
+      ul
+        li
+          p= 'This code is <escaped>'
+        li
+          p!= 'This code is not <escaped>'
+
+      // now let's try a each loop
+      ul
+        each val in [1, 2, 3, 4]
+          li= val
+
+  section#learn-markdown
+    h1 Oh my god! It supports markdown? :)
+    :markdown
+      Let me have a try **here**.
+          #include <iostream>
+          using namespace std;
+          int main() {
+            return 0;
+          }
+      Great!
+
+  section#learn-mixin
+    h1 Mixin
+    +MyList()
